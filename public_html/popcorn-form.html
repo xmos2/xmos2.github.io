@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Club Popcorn Sales</title>
+
+	</head>
+
+<!-- the function to calculate subtotal is called subtotal() and for the grand total it's grandtotal()
+Both functions come out of the "Update Subtotal" button, but the grand total has to print out next to the "Grand Total: " element. -->
+
+	<body>
+		<form action="mailto:hreed@my.uri.edu" method="post" enctype="text/plain" name="EmailPopcornForm" id="popcorn-form">
+			<fieldset>
+				<legend>Club Popcorn Sales</legend>
+				<label>Buyer's Name:
+					<input type="text" name="name" id="buyers-name" placeholder="Name Required" required></label>
+				<br>
+				<label>Street Address:
+					<input type="text" name="streetAddress" id="street-address" required></label>
+				<br>
+				<label>City, State, Zip:
+					<input type="text" name="stateAddress" id="city-state-zip" required></label>
+				<br><br>
+<!-- this table has all the popcorn types and a button at the bottom to calculate subtotal and grand total -->
+				<table id="product-table">
+					<tr>
+						<th>Product Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+					</tr>
+					<tr>
+						<th>Unpopped Popcorn (1 lb.)</th>
+						<th>$3.00</th>
+						<th>
+							<input type="number" class="quantity" id="unpopped">
+						</th>
+					</tr>
+					<tr>
+						<th>Caramel Popcorn (2 lb. canister)</th>
+						<th>$3.50</th>
+						<th>
+							<input type="number" class="quantity" id="caramel">
+						</th>
+					</tr>
+					<tr>
+						<th>Caramel Nut Popcorn (2 lb. canister)</th>
+						<th>$4.50</th>
+						<th>
+							<input type="number" class="quantity" id="caramel-nut">
+						</th>
+					</tr>
+					<tr>
+						<th>Toffey Nut Popcorn (2 lb. canister)</th>
+						<th>$5.00</th>
+						<th>
+							<input type="number"  class="quantity" id="toffey">
+						</th>
+					</tr>
+					<tr>
+						<th>Subtotal:</th>
+						<th>
+							<input type="number" readonly name="sub-total" id="sub-total">
+						</th>
+						<th>
+							<input type="button" onclick="subtotal()" value="Update Subtotal">
+						</th>
+					</tr>
+				</table>
+				<br><br>
+<!-- grand total and options for credit card type -->
+				<div id="payment-method">
+					<label>Grand Total:
+						<input type="number" readonly name="grand-total" id="grand-total">
+					</label>
+					<br>
+					<input type="radio" name="payment-type" value="credit"> Visa
+					<input type="radio" name="payment-type" value="credit"> Mastercard
+					<input type="radio" name="payment-type" value="credit"> Discover
+					<input type="radio" name="payment-type" value="credit"> American Express
+					<input type="radio" name="payment-type" value="checks" id="check" checked> Check
+				</div>
+				<br><br>
+<!-- submit and clear form buttons -->
+				<input type="submit" name="submit" value="Submit Order" onclick="return finished()">
+				<input type="reset" name="reset" value="Clear Form">
+
+			</fieldset>
+		</form>
+		<script src="popcorn-form.js"> </script>
+	</body>
+</html>
